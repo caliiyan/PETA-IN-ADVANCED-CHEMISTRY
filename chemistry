@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Composition of Everyday Products</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Cover Page Styling */
+        .cover-page {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #4CAF50, #ff9800);
+            color: white;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cover-page h1 {
+            font-size: 45px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .cover-page h3 {
+            font-size: 28px;
+            margin-top: 15px;
+            font-style: italic;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .cover-page p {
+            font-size: 20px;
+            margin-top: 10px;
+            animation: fadeInUp 2.5s ease-out;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            animation: slideIn 2s ease-out forwards;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        /* Button Styling */
+        .btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 16px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 20px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #f57c00;
+        }
+
+        /* Reflection Section */
+        .reflection {
+            background-color: #ffecb3;
+            padding: 20px;
+            margin-top: 50px;
+            border-left: 10px solid #4CAF50;
+            font-size: 18px;
+            line-height: 1.6;
+            animation: fadeInUp 2.5s ease-out;
+        }
+
+        /* A4 Page Layout */
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+            }
+            .cover-page {
+                padding: 40px;
+            }
+            table {
+                margin-top: 40px;
+            }
+            .reflection {
+                margin-top: 40px;
+                padding: 15px;
+            }
+        }
+
+        /* Animation Effects */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cover Page Section -->
+<div class="cover-page">
+    <h1>The Science Behind the Label: Decoding Everyday Ingredients</h1>
+    <h3>Exploring Chemical Components in Coca-Cola, Milk Loaded, and Safeguard</h3>
+    <p><strong>Name:</strong> Lianne Joy E. Lopez</p>
+    <p><strong>Section:</strong> Newton</p>
+</div>
+
+<!-- Interactive Table Section -->
+<h2 style="text-align: center; color: #4CAF50; font-size: 30px; animation: fadeIn 2s ease-out;">Chemical Composition Table</h2>
+
+<table id="productTable">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Ingredient</th>
+            <th>Chemical Name</th>
+            <th>Formula</th>
+            <th>Molecular Mass (g/mol)</th>
+            <th>Percentage Composition</th>
+            <th>Number of Moles</th>
+            <th>Empirical/Molecular Formula</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Coca-Cola</td>
+            <td>Carbonated Water</td>
+            <td>Water</td>
+            <td>H₂O</td>
+            <td>18</td>
+            <td>95%</td>
+            <td><input type="number" id="molesH2O" value="17.42" class="input-cell" onchange="calculateMoles()"></td>
+            <td>H₂O</td>
+        </tr>
+        <tr>
+            <td>Milk Loaded</td>
+            <td>Sugar (Sucrose)</td>
+            <td>Sucrose</td>
+            <td>C₁₂H₂₂O₁₁</td>
+            <td>342.3</td>
+            <td>30%</td>
+            <td><input type="number" id="molesSucrose" value="0.0438" class="input-cell" onchange="calculateMoles()"></td>
+            <td>C₁₂H₂₂O₁₁</td>
+        </tr>
+        <tr>
+            <td>Safeguard</td>
+            <td>Sodium Chloride</td>
+            <td>Sodium Chloride</td>
+            <td>NaCl</td>
+            <td>58.44</td>
+            <td>5%</td>
+            <td><input type="number" id="molesNaCl" value="0.0856" class="input-cell" onchange="calculateMoles()"></td>
+            <td>NaCl</td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn" onclick="calculateMoles()">Calculate All Moles</button>
+
+<!-- Reflection Section -->
+<div class="reflection">
+    <h3>Reflection:</h3>
+    <p><strong>Importance of Understanding Chemical Composition:</strong>  
+        Knowing the chemical composition of products gives us better control over what we consume. For example, understanding the presence of ''carbonated water (H₂O)'' in Coca-Cola, ''sucrose (C₁₂H₂₂O₁₁)'' in Milk Loaded, and ''sodium chloride (NaCl)'' in Safeguard helps us make informed decisions about our health. These insights can affect our choices regarding nutrition, environmental impact, and overall well-being. When we understand how these substances work in our body and environment, we become more mindful consumers. It’s empowering to know how everyday items are connected to science.
+    </p>
+    <p><strong>Why Manufacturers Don't Use Chemical Names:</strong>  
+        Manufacturers opt for simpler, non-technical terms to make products more approachable. Chemical names can sound complex, so using names like ''Sodium Chloride'' instead of ''NaCl'' or ''Sucrose'' instead of its full formula makes it easier for the average consumer to understand. This strategy helps bridge the gap between scientific knowledge and the general public, ensuring that consumers feel more confident about the products they are using without being overwhelmed by scientific jargon.
+    </p>
+</div>
+
+<script>
+    // Function to calculate moles based on input value
+    function calculateMoles() {
+        var molesH2O = document.getElementById("molesH2O").value;
+        var molesSucrose = document.getElementById("molesSucrose").value;
+        var molesNaCl = document.getElementById("molesNaCl").value;
+
+        console.log("Moles of Water (H2O):", molesH2O);
+        console.log("Moles of
